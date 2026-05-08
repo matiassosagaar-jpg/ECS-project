@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
-    src/PositionStorage.cpp
     src/RenderSystem.cpp
+    src/MovementSystem.cpp
 )
 set(raylib_DIR "C:/msys64/ucrt64/lib/cmake/raylib")
 set(CMAKE_PREFIX_PATH "C:/msys64/ucrt64")
