@@ -2,6 +2,7 @@
 #include <vector>
 #include <raylib.h>
 #include <unordered_map>
+#include <cassert>
 template <typename T>
 class ComponentStorage {
 public:
@@ -15,6 +16,7 @@ public:
 
     bool has(int entity) const;
 
+    T& get(int entity);
     const T& get(int entity) const;
 };
 //Implementation
@@ -48,8 +50,13 @@ bool ComponentStorage<T>::has(int entity) const {
         return entityToIndex.find(entity) != entityToIndex.end();
     }
 template <typename T>
-const T& ComponentStorage<T>::get(int entity) const{
+T& ComponentStorage<T>::get(int entity){
     assert(this->has(entity)); // shut ups the programm if entity not found
     return component[entityToIndex.find(entity)->second]; // using find, [] is a non-const operator for the map
     
+}
+template <typename T>
+const T& ComponentStorage<T>::get(int entity) const{
+    assert(this->has(entity)); // shut ups the programm if entity not found
+    return component[entityToIndex.find(entity)->second]; // using find, [] is a non-const operator for the map
 }
