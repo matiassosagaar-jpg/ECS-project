@@ -1,9 +1,14 @@
 #include <RenderSystem.hpp>
 #include <vector>
 #include <raylib.h>
-namespace RenderSystem {
-    void DrawEntities(const ComponentStorage<Vector2>& position) {
-        for (const Vector2& pos : position.component)
-            DrawCircle(pos.x, pos.y, 40.0f, RED);
+
+void RenderSystem::DrawEntities(
+    const ComponentStorage<Vector2>& position,
+    const ComponentStorage<float>& radius
+) {
+    for (int entity : position.entities)
+        if (radius.has(entity)) {
+            Vector2 pos = position.get(entity);
+            DrawCircle(pos.x, pos.y, radius.get(entity), RED);
     }
 }

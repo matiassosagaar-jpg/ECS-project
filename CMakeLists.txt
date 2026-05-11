@@ -8,6 +8,7 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/RenderSystem.cpp
     src/MovementSystem.cpp
+    src/BounceSystem.cpp
 )
 set(raylib_DIR "C:/msys64/ucrt64/lib/cmake/raylib")
 set(CMAKE_PREFIX_PATH "C:/msys64/ucrt64")

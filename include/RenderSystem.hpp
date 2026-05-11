@@ -11,5 +11,8 @@ it makes sense it expects a Vector2 and not any other
 kind of type
 */
 namespace RenderSystem {
-    void DrawEntities(const ComponentStorage<Vector2>& position);
+    void DrawEntities(
+        const ComponentStorage<Vector2>& position,
+        const ComponentStorage<float>& radius
+    );
 }
