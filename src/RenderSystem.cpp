@@ -12,3 +12,4 @@ void RenderSystem::DrawEntities(
             DrawCircle(pos.x, pos.y, radius.get(entity), RED);
     }
 }
+
