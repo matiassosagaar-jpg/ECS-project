@@ -13,6 +13,7 @@ kind of type
 namespace RenderSystem {
     void DrawEntities(
         const ComponentStorage<Vector2>& position,
-        const ComponentStorage<float>& radius
+        const ComponentStorage<float>& radius,
+        const ComponentStorage<Color>& color
     );
 }
