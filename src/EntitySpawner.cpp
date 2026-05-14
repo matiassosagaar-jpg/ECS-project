@@ -5,6 +5,7 @@ void EntitySpawner::SpawnBall(
     ComponentStorage<Vector2>& velocityStorage,
     ComponentStorage<float>& radiusStorage,
     ComponentStorage<Color>& colorStorage,
+    ComponentStorage<Color>& overlayStorage,
     std::mt19937& generator, // passing the generator by reference
     Vector2 posMaxRange, // expects max range for both xy values
     Vector2 velocityMaxRange, // idem
@@ -18,7 +19,7 @@ void EntitySpawner::SpawnBall(
     std::uniform_real_distribution<float> velocityDistX(-velocityMaxRange.x, velocityMaxRange.x);
     std::uniform_real_distribution<float> velocityDistY(-velocityMaxRange.y, velocityMaxRange.y);
     std::uniform_int_distribution<int> radDist(1, radiusMaxRange);
-    //assigning them a random value
+    //assigning them a random values
     Vector2 position {
     static_cast<float>(posDistX(generator)),
     static_cast<float>(posDistY(generator))
@@ -32,5 +33,6 @@ void EntitySpawner::SpawnBall(
     velocityStorage.add(entity, velocity);
     radiusStorage.add(entity, radius);
     colorStorage.add(entity, color);
+    overlayStorage.add(entity, BLANK);
     entity++;
 }
