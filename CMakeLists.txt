@@ -10,16 +10,19 @@ add_executable(${PROJECT_NAME}
     src/MovementSystem.cpp
     src/BounceSystem.cpp
     src/EntitySpawner.cpp
+    src/CollisionSystem.cpp
 )
-set(raylib_DIR "C:/msys64/ucrt64/lib/cmake/raylib")
-set(CMAKE_PREFIX_PATH "C:/msys64/ucrt64")
-find_package(raylib REQUIRED)
-target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
-
 target_include_directories(${PROJECT_NAME}
     PRIVATE
     include
 )
+find_package(raylib REQUIRED)
+target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
 if(UNIX AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE m pthread dl rt X11)
 endif()

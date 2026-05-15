@@ -34,7 +34,10 @@ int main() {
             overlay = BLANK;
         // Hilighting positions
         CollisionSystem::HighlightCollisions_Ball(
-            PositionStorage, RadiusStorage, OverlayStorage, ColorStorage, RED
+            PositionStorage, RadiusStorage, OverlayStorage, RED
+        );
+        CollisionSystem::SwapVelocityInCollision_Ball(
+            PositionStorage, RadiusStorage, VelocityStorage
         );
         // so, the balls that are in current collision this frame will be red, ant the ones that aren't will be green
         MovementSystem::ApplyVelocity(VelocityStorage, PositionStorage);

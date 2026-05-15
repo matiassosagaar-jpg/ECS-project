@@ -14,6 +14,7 @@ namespace RenderSystem {
     void DrawEntities(
         const ComponentStorage<Vector2>& position,
         const ComponentStorage<float>& radius,
-        const ComponentStorage<Color>& color
+        const ComponentStorage<Color>& color,
+        const ComponentStorage<Color>& overlay
     );
 }
